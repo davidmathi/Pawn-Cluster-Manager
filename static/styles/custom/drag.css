@@ -1,0 +1,53 @@
+* {
+margin: 0;
+padding: 0;
+}
+
+body {
+background: #eee;
+}
+
+#wrapper {
+position: relative;
+width: 80%;
+margin: 20px auto;
+border: 2px #000 solid;
+background: #fff;
+-moz-box-shadow: 3px 3px 3px #888;
+-webkit-box-shadow: 3px 3px 3px #888;
+box-shadow: 3px 3px 3px #888;
+}
+
+#dragMe {
+position: absolute;
+top: 15px;
+left: 15px;
+width: 250px;
+height: 250px;
+border: 1px #333 solid;
+background: #06a;
+color: #fff;
+font-size: 12px;
+font-family: sans-serif;
+}
+
+#withMe {
+width: 242px;
+background: #666;
+border-bottom: 1px #333 solid;
+cursor: move;
+padding: 4px;
+}
+
+#dragMe p {
+padding: 4px;
+}
+
+p.text {
+color: #999;
+font-size: 32px;
+font-family: "URW Chancery L", cursive;
+width: 650px;
+margin: 0 auto;
+padding: 200px 0;
+}

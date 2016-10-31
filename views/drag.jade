@@ -1,0 +1,213 @@
+doctype html
+html(lang='en')
+  head
+    // Data Tags
+    title DragDrop Test
+    meta(charset='utf-8')
+    style(type='text/css').
+      * {
+      margin: 0;
+      padding: 0;
+      }
+      body {
+      background: #eee;
+      }
+      #wrapper {
+      position: relative;
+      width: 80%;
+      margin: 20px auto;
+      border: 2px #000 solid;
+      background: #fff;
+      -moz-box-shadow: 3px 3px 3px #888;
+      -webkit-box-shadow: 3px 3px 3px #888;
+      box-shadow: 3px 3px 3px #888;
+      }
+      #ccdragMeCss {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 250px;
+      height: 250px;
+      border: 1px #333 solid;
+      background: #06a;
+      color: #fff;
+      font-size: 12px;
+      font-family: sans-serif;
+      }
+      #ccwithMeCss {
+      width: 242px;
+      background: #666;
+      border-bottom: 1px #333 solid;
+      cursor: move;
+      padding: 4px;
+      }
+      .dragMeCss {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 250px;
+      height: 250px;
+      border: 1px #333 solid;
+      background: #06a;
+      color: #fff;
+      font-size: 12px;
+      font-family: sans-serif;
+      }
+      .withMeCss {
+      width: 242px;
+      background: #666;
+      border-bottom: 1px #333 solid;
+      cursor: move;
+      padding: 4px;
+      }
+      #dragMe p {
+      padding: 4px;
+      }
+      p.text {
+      color: #999;
+      font-size: 32px;
+      font-family: "URW Chancery L", cursive;
+      width: 650px;
+      height: 300px;
+      margin: 0 auto;
+      padding: 200px 0;
+      }
+  body
+    div( style='position:absolute;top:10px;')
+      #nav-toggle
+        li
+          p Angular js 
+          img#drag1(style="background:#222;", src="img/a.jpg", draggable="true" ondragstart="drag(event)", onclick='clicked(this)', width='110', height='75')
+        li
+          p Facebook
+          img#drag2(style="background:#339;", src="img/f.png", draggable="true" ondragstart="drag(event)", onclick='clicked(this)', width='110', height='75')
+        li
+          p Mongo db
+          img#drag3(style="background:#090;", src="img/m.png", draggable="true" ondragstart="drag(event)", onclick='clicked(this)', width='110', height='75')
+        li
+          p Node js
+          img#drag4(style="background:#500;", src="img/n.png", draggable="true" ondragstart="drag(event)", onclick='clicked(this)', width='110', height='75')
+        li
+          p Sql
+          img#drag5(style="background:#888;", src="img/s.png", draggable="true" ondragstart="drag(event)", onclick='clicked(this)', width='110', height='75')
+    #ccdragMeCss(hidden="true")
+    #wrapper(ondrop="if(selected!='')drop(event)", ondragover="allowDrop(event)")
+      #dragMe(class="dragMeCss")
+        #withMe(class="withMeCss")
+          | NodeJS
+        p
+      p.text
+
+
+    // JavaScript Includes
+    script(type='text/javascript', charset='utf-8', src='js/drag-drop.js')
+    script(type='text/javascript').
+      var dragMe = document.getElementById('dragMe');
+      var withMe = document.getElementById('withMe');
+      var selected="";
+
+
+      var shouldntHappen = function() {
+      console.log('THIS SHOULDN HAPPEN');
+      };
+
+
+      function allowDrop(ev)
+      {
+      ev.preventDefault();
+      }
+      function drag(ev)
+      {
+      ev.dataTransfer.setData("Text",ev.target.id);
+      }
+      function drop(ev)
+      {
+      //ev.preventDefault();
+      //var data=ev.dataTransfer.getData("Text");
+      //ev.target.appendChild(document.getElementById(data));
+      console.log();
+      var newbox = dragMe.cloneNode(true);
+      newbox.id="newone";
+      newbox.style=document.getElementById("ccdragMeCss").style;
+      newbox.firstChild.innerHTML=selected;
+      selected="";
+      console.log(newbox);
+      console.log(dragMe);
+
+      var dragRef1 = DragDrop.bind(newbox, {
+      anchor: newbox,
+      boundingBox: 'offsetParent',
+      dragstart: function(evt) {
+        console.log('DragDrop.bind dragstart', evt);
+      },
+      drag: function(evt) {
+        console.log(evt.target.id);
+        console.log('DragDrop.bind drag', evt);
+      },
+      dragend: function(evt) {
+        console.log('DragDrop.bind dragend', evt);
+      }
+      });
+
+      dragRef1.bindEvent('dragstart', function(evt) {
+        console.log('DragDrop.bindEvent dragstart', evt);
+      });
+      dragRef1.bindEvent('drag', function(evt) {
+        console.log('DragDrop.bindEvent drag', evt);
+      });
+      dragRef1.bindEvent('dragend', function(evt) {
+        console.log('DragDrop.bindEvent dragend', evt);
+      });
+      dragRef1.bindEvent('dragstart', shouldntHappen);
+      dragRef1.unbindEvent('dragstart', shouldntHappen);
+      dragRef1.bindEvent('drag', shouldntHappen);
+      dragRef1.unbindEvent('drag', shouldntHappen);
+      dragRef1.bindEvent('dragend', shouldntHappen);
+      dragRef1.unbindEvent('dragend', shouldntHappen);
+
+      document.getElementById('wrapper').appendChild(newbox);
+      //btn.style=dragMe.style;
+      }
+
+
+
+      var clicked=function(img){
+        switch(img.id)
+        {case 'drag1': selected = 'Angular JS';break;
+         case 'drag2': selected = 'Facebook';break;
+         case 'drag3': selected = 'Mongo';break;
+         case 'drag4': selected = 'NodeJS';break;
+         case 'drag5': selected = 'SQL';break;
+        }
+      }
+
+      var dragRef = DragDrop.bind(dragMe, {
+      anchor: dragMe,
+      boundingBox: 'offsetParent',
+      dragstart: function(evt) {
+      console.log('DragDrop.bind dragstart', evt);
+      },
+      drag: function(evt) {
+      console.log(evt.target.id);
+      console.log('DragDrop.bind drag', evt);
+      },
+      dragend: function(evt) {
+      console.log('DragDrop.bind dragend', evt);
+      }
+      });
+
+      dragRef.bindEvent('dragstart', function(evt) {
+      console.log('DragDrop.bindEvent dragstart', evt);
+      });
+      dragRef.bindEvent('drag', function(evt) {
+      console.log('DragDrop.bindEvent drag', evt);
+      });
+      dragRef.bindEvent('dragend', function(evt) {
+      console.log('DragDrop.bindEvent dragend', evt);
+      });
+      dragRef.bindEvent('dragstart', shouldntHappen);
+      dragRef.unbindEvent('dragstart', shouldntHappen);
+      dragRef.bindEvent('drag', shouldntHappen);
+      dragRef.unbindEvent('drag', shouldntHappen);
+      dragRef.bindEvent('dragend', shouldntHappen);
+      dragRef.unbindEvent('dragend', shouldntHappen);

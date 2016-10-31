@@ -1,0 +1,32 @@
+{
+  "name": "pawn",
+  "version": "1.0.0",
+  "description": "Docker cluster manager",
+  "main": "saveobj.js",
+  "dependencies": {
+    "aws-sdk": "^2.6.9",
+    "body-parser": "^1.15.2",
+    "braintree-web": "^3.5.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "jade": "^1.11.0",
+    "morgan": "^1.7.0",
+    "paypal-rest-sdk": "^1.6.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidmathi91/1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidmathi91/1/issues"
+  },
+  "homepage": "https://github.com/davidmathi91/1#readme"
+}

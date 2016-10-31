@@ -1,0 +1,271 @@
+doctype html
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7  
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8  
+//if IE 8
+  html.no-js.lt-ie9  
+// [if gt IE 8] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    meta(name='robots', content='all,follow')
+    meta(name='googlebot', content='index,follow,snippet,archive')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title PAWN
+    meta(name='keywords', content='')
+    link(href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100', rel='stylesheet', type='text/css')
+    // Bootstrap and Font Awesome css
+    link(href='css/font-awesome.css', rel='stylesheet')
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    // Theme stylesheet
+    link#theme-stylesheet(href='css/style.default.css', rel='stylesheet')
+    // Custom stylesheet - for your changes
+    link(href='css/custom.css', rel='stylesheet')
+    // owl carousel css
+    link(href='css/owl.carousel.css', rel='stylesheet')
+    link(href='css/owl.theme.css', rel='stylesheet')
+    // CSS Animations
+    link(href='css/animate.css', rel='stylesheet')
+    // Favicon
+    link(rel='shortcut icon', href='favicon.png')
+    // Mordernizr
+    script(src='js/modernizr-2.6.2.min.js')
+    // Responsivity for older IE
+    //if lt IE 9
+      script(src='js/respond.min.js')
+  body(data-spy='scroll', data-target='#navigation', data-offset='120')
+    //
+      *** NAVBAR ***
+      _________________________________________________________
+    #navbar.navbar.navbar-default.navbar-fixed-top(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.scrollTo(href='#intro') PAWN
+        #navigation.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li.active
+              a(href='#intro') Intro
+            li
+              a(href='#about') About
+            li
+              a(href='#services') Services
+            li
+              a(href='#signin') Sign In
+            li
+              a(href='#customers') Clients
+            //
+              -<li><a href="#testimonials">Testimonials</a>
+              </li>-
+            li
+              a(href='#contact') Contact
+        // /.nav-collapse
+    // /#navbar
+    // *** NAVBAR END ***
+    #all
+      //
+        *** INTRO IMAGE ***
+        _________________________________________________________
+      #intro.clearfix
+        .item
+          .container
+            .row
+              .carousel-caption
+                .logo(data-animate='fadeInDown')
+                  // img src="img/3.png" alt="logo" width="220"
+                h1(data-animate='fadeInDown', style='color:black;') Welcome
+                h2(data-animate='slideInUp', style='color:black;') PAWN-Configuration Manager for Docker Cluster
+      // *** INTRO IMAGE END ***
+      //
+        *** ABOUT ***
+        _________________________________________________________
+      #about.section
+        .container
+          .row
+            .col-sm-12
+              h2.title(data-animate='fadeInDown') About PAWN
+            .col-sm-12
+              .row
+                .col-sm-18.text-left(data-animate='fadeInUp')
+                  p
+                    | Applications can be easily sandboxed in minutes compared to days that VM configuration would take.
+                    | Docker is one of the major players in this field and Kuberenetes is an orchestration tool which is used to
+                    | distribute docker containers, manage and monitor the cluster of hosts
+                  p
+                    | Monitoring tool for docker containers is necessary for the system administrators to take actions quickly
+                    | based on the resource usage. Actions like scaling in and scaling out needs to be taken quickly when
+                    | there is a surge in network, memory or CPU usage. These resources needs to be monitored frequently
+                    | in order to make such decision.
+                  p
+                    | So 
+                    strong  PAWN 
+                    |  The tool will present a GUI for easy monitoring of the resources used by containers in a host. It would
+                    | also be able to aggregate all the host resource utilization of each cluster. Grouping can also be done
+                    | based on the pods in cluster.
+                //
+                  *** SERVICES ***
+                  _________________________________________________________
+                #services.section.text-gradient
+                  .container
+                    .col-md-12
+                      h2.title(data-animate='fadeInDown') Services
+                      .row.services
+                        .col-md-4(data-animate='fadeInUp')
+                          div
+                            img(src='img/create.png', width='300', height='200')
+                          h3.heading Create
+                          p       Drag & Drop all the desired images to build the container.
+                        .col-md-4(data-animate='fadeInUp')
+                          div
+                            img(src='img/file.png', width='300', height='200')
+                          h3.heading Save
+                          p         Save all the properties selected for particular images in a text file.
+                        .col-md-4(data-animate='fadeInUp')
+                          div
+                            img(src='img/build.png', width='300', height='200')
+                          h3.heading Build
+                          p            Build the docker container.
+                      hr
+                      .text-center
+                        p.lead Would you like to know more or just discuss something?
+                        p
+                          a.btn.btn-default.btn-lg.scrollTo(href='#contact') Contact us
+                    // /.12
+                  // /.container
+                // /.section
+                // *** SERVICES END ***
+                //
+                  *** REFERENCES IMAGE ***
+                  _________________________________________________________
+                #signin.section
+                  .container
+                    .col-sm-12
+                      .mb20
+                        h2.title(data-animate='fadeInUp')  Login/Sign up
+                        p.lead(data-animate='fadeInUp') Click on the button below to either login or sign up
+                        button(onclick="window.location = 'dashboard.jade'") Login
+                    // /.12
+                  // /.container
+                // /.section
+                // *** REFERENCES END ***
+                //
+                  *** CUSTOMERS ***
+                  _________________________________________________________
+                #customers.section.text-gray
+                  .container
+                    .col-md-12
+                      .row
+                        .col-sm-4.col-md-2.col-xs-6
+                          .customer
+                            img.img-responsive(src='img/customers/a.jpg', title='angular js', data-placement='bottom', data-toggle='tooltip', alt='', width='90', height='90')
+                        .col-sm-4.col-md-2.col-xs-6
+                          .customer
+                            img.img-responsive(src='img/customers/f.png', title='facebook', data-placement='bottom', data-toggle='tooltip', alt='', width='150', height='200')
+                        .col-sm-4.col-md-2.col-xs-6
+                          .customer
+                            img.img-responsive(src='img/customers/n.jpg', title='node js', data-placement='bottom', data-toggle='tooltip', alt='', width='480', height='390')
+                        .col-sm-4.col-md-2.col-xs-6
+                          .customer
+                            img.img-responsive(src='img/customers/m.png', title='mongo db', data-placement='bottom', data-toggle='tooltip', alt='', width='800', height='800')
+                        .col-sm-4.col-md-2.col-xs-6
+                          .customer
+                            img.img-responsive(src='img/customers/s.png', title='sql', data-placement='bottom', data-toggle='tooltip', alt='', width='90', height='90')
+                        .col-sm-4.col-md-2.col-xs-6
+                          .customer
+                            img.img-responsive(src='img/customers/e.png', title='express js', data-placement='bottom', data-toggle='tooltip', alt='', width='800', height='800')
+                      // /.row
+                    // /.12
+                  // /.container
+                //
+                  *** CONTACT ***
+                  _________________________________________________________
+                #contact.section.contact(data-animate='bounceIn')
+                  .container
+                    .col-md-12
+                      h2.title Contact us
+                      .row
+                        .col-md-8.col-md-offset-2
+                          form#contact-form(method='post', action='contact.php')
+                            .messages
+                            .controls
+                              .row
+                                .col-md-6
+                                  input.form-control(type='text', name='name', placeholder='Your firstname *', required='required')
+                                .col-md-6
+                                  input.form-control(type='text', name='surname', placeholder='Your lastname *', required='required')
+                                .col-md-6
+                                  input.form-control(type='text', name='email', placeholder='Your email *', required='required')
+                                .col-md-6
+                                  input.form-control(type='text', name='phone', placeholder='Your phone')
+                                .col-md-12
+                                  textarea.form-control(name='message', placeholder='Message for me *', rows='4', required='required')
+                                .col-md-12.text-center
+                                  input.btn.btn-primary.btn-lg(type='submit', value='Send message')
+                    // /.12
+                  // /.container
+                // /.section
+                // *** CONTACT END ***
+                //
+                  *** MAP ***
+                  _________________________________________________________
+                //
+                  <div class="section" id="map">
+                  </div>-
+                // /.section
+                // *** MAP END ***
+                //
+                  *** FOOTER ***
+                  _________________________________________________________
+                #footer.section
+                  .container
+                    .row
+                      .col-sm-6
+                        p.social
+                          a.external.facebook(href='#', data-animate-hover='shake', data-animate='fadeInUp')
+                            i.fa.fa-facebook
+                          a.external.instagram(href='#', data-animate-hover='shake', data-animate='fadeInUp')
+                            i.fa.fa-instagram
+                          a.external.gplus(href='#', data-animate-hover='shake', data-animate='fadeInUp')
+                            i.fa.fa-google-plus
+                          a.email(href='#', data-animate-hover='shake', data-animate='fadeInUp')
+                            i.fa.fa-envelope
+                      // /.6
+                      .col-sm-6
+                        p ©PAWN-All rights reserved.
+                      //
+                        -<div class="col-sm-12">
+                        <p class="template-bootstrapious">Template by <a href="https://bootstrapious.com/free-templates">Bootstrapious.com</a></p>
+                        <!-- Please do not remove the backlink to us, unless you support the development at https://bootstrapious.com/donate. It is part of the license conditions. Thanks for understanding :)
+                // /.container
+              // /.section
+              // *** FOOTER END ***
+            // /#all
+            // #### JAVASCRIPT FILES ###
+            // js base
+            script(src='js/jquery-1.11.0.min.js')
+            script(src='js/bootstrap.min.js')
+            // for demo purpose
+            script(src='js/jquery.cookie.js')
+            // waypoints for scroll spy
+            script(src='js/waypoints.min.js')
+            // maps
+            script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false')
+            script(src='js/gmaps.js')
+            // masonry layout
+            script(src='js/masonry.pkgd.min.js')
+            // owl carousel
+            script(src='js/owl.carousel.min.js')
+            // jQuery scroll to
+            script(src='js/jquery.scrollTo.min.js')
+            // jQuery counter
+            script(src='js/jquery.counterup.min.js')
+            // jQuery parallax
+            script(src='js/jquery.parallax-1.1.3.js')
+            // main js file
+            script(src='js/front.js')
